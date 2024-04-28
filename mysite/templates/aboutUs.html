@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Title{% endblock %}
+{% block content %}
+        <!-- Main Content -->
+        <main class="flex-grow">
+            <div class="container mx-auto px-4 py-6">
+                <h1 class="text-3xl font-bold mb-4">О нас</h1>
+                <div class="space-y-6">
+                    <section>
+                        <h2 class="text-2xl font-bold mb-3">Наша история и миссия</h2>
+                        <p class="text-lg text-gray-700">Созданный в 2024 году, наш компьютерный магазин нацелен на
+                            предоставление высококачественных комплектующих для компьютеров. Мы стремимся стать лучшим
+                            ресурсом для энтузиастов и профессионалов, предлагая широкий ассортимент товаров по
+                            конкурентоспособным ценам.</p>
+                        <img src="/path/to/our-story.jpg" alt="Наша история"
+                            class="w-full h-auto rounded-md shadow-lg mt-4">
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold mb-3">Почему выбирают нас</h2>
+                        <ul class="list-disc pl-5 text-lg text-gray-700">
+                            <li>Широкий ассортимент качественных товаров от ведущих производителей.</li>
+                            <li>Конкурентоспособные цены и регулярные акции.</li>
+                            <li>Профессиональная поддержка и консультации.</li>
+                            <li>Быстрая и надежная доставка по всей стране.</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold mb-3">Наша команда</h2>
+                        <div class="flex space-x-4">
+                            <!-- Пример карточки сотрудника -->
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <img src="/path/to/employee-1.jpg" alt="Ава"
+                                    class="rounded-full h-32 w-32 mb-4 mx-auto">
+                                <div class="text-center">
+                                    <p class="text-lg font-semibold">Имя Сотрудника</p>
+                                    <p class="text-sm text-gray-600">Должность</p>
+                                </div>
+                            </div>
+                            <!-- Добавьте карточки других сотрудников аналогично -->
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2 class="text-2xl font-bold mb-3">Отзывы наших клиентов</h2>
+                        <!-- Пример отзыва -->
+                        <div class="bg-white p-4 rounded-lg shadow mb-4">
+                            <p class="text-lg text-gray-700">"Великолепный магазин с широким выбором и отличным
+                                сервисом. Всегда нахожу то, что ищу!" - Алексей С.</p>
+                        </div>
+                        <!-- Добавьте другие отзывы аналогично -->
+                    </section>
+                </div>
+            </div>
+        </main>
+{% endblock %}

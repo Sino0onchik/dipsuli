@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Title{% endblock %}
+{% block content %}
+        <main class="flex-grow">
+            <div class="container mx-auto py-10 flex">
+                <div class="w-1/4 bg-gray-200 p-4">
+                    <!-- Категории -->
+                    <nav class="space-y-1">
+
+                        <!-- Вложенное меню для категорий (можно скрыть/показывать с помощью JS) -->
+                        <div class="mt-1">
+                            {% for i in categories %}
+                            <a href="/category/{{ i.id }}"
+                                class="block px-4 py-2 hover:bg-orange-500 hover:text-white rounded transition duration-150">{{ i.title }}
+                                ({{ i.products.count }})</a>
+                            {% endfor %}
+
+                        </div>
+                        <!-- Вторая Категория -->
+                        <!-- Код для других категорий аналогичен первой -->
+                    </nav>
+                </div>
+                <div class="w-3/4 ml-5">
+                    <h1 class="text-3xl font-bold mb-4">{{ category.title }}</h1>
+                    <div class="flex flex-col gap-8">
+                        {% for i in products %}
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden md:max-w-full">
+                            <div class="md:flex">
+                                <div class="md:flex-shrink-0">
+                                    <img class="h-48 w-full object-cover md:w-48" src="{{ i.image.url }}"
+                                        alt="Product Name">
+                                </div>
+                                <div class="p-8">
+                                    <a href="#"
+                                        class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{{ i.title }}</a>
+                                    <p class="mt-2 text-gray-500">{{ i.mini_desc }}</p>
+                                    <div class="flex items-center justify-between mt-4">
+                                        <div>
+                                            <div class="text-lg font-bold text-red-600">{{ i.price }} Сом</div>
+                                            <div class="text-sm text-gray-600">Артикул: {{ i.article }}</div>
+                                        </div>
+                                        <div>
+                                            <a href="/item/add/{{ i.id }}/"
+                                                class="px-3 py-1 bg-red-500 text-white text-xs font-bold uppercase rounded hover:bg-red-600 transition duration-300 ease-in-out">Купить</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </main>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Title{% endblock %}
+{% block content %}
+        <main class="flex-grow">
+            <div class="container mx-auto px-4 py-6">
+                <h1 class="text-3xl font-bold mb-4">Ваша корзина</h1>
+                <!-- Cart Items -->
+                <div class="space-y-4">
+                    <!-- Example Cart Item -->
+                    {% for i in cart_items %}
+                    <div class="flex items-center bg-white shadow rounded p-4">
+                        <div class="flex-none w-20">
+                            <img src="{{ i.product.image.url }}" alt="Product Name"
+                                class="w-full h-auto object-cover rounded">
+                        </div>
+                        <div class="flex-auto px-4">
+                            <p class="text-lg font-semibold">{{ i.product.title }}</p>
+                            <p class="text-gray-500">{{ i.product.mini_desc }}</p>
+                        </div>
+                        <div class="px-4">
+                            <p class="text-lg">{{ i.product.price }} Сом</p>
+                        </div>
+                        <div class="px-4">
+                            <p class="px-4">{{ i.quantity }}</p>
+                        </div>
+                        <div class="px-4">
+                            <a class="text-red-600 hover:text-red-800" type="button">&times;</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- Repeat for other cart items -->
+                </div>
+                <!-- Cart Summary -->
+                <div class="mt-6 p-4 bg-white shadow rounded">
+                    <h2 class="text-xl font-bold mb-4">Итого</h2>
+                    <div class="flex justify-between">
+                        <p class="text-lg">Общая стоимость:</p>
+                        <p class="text-lg font-semibold">{{ total }} Сом</p>
+                    </div>
+                    <div class="flex justify-center mt-6">
+                        <a href="/create/order/" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+                            type="button">Оформить заказ</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+{% endblock %}

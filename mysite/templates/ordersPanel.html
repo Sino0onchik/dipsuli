@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Title{% endblock %}
+{% block content %}
+        <!-- Main Content -->
+        <main class="flex-grow">
+            <div class="container mx-auto px-4 py-6">
+                <h1 class="text-3xl font-bold mb-4">Панель заказов</h1>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white shadow-md rounded mb-4">
+                        <thead>
+                            <tr class="w-full h-16 border-gray-300 border-b py-8">
+                                <th class="text-left pl-8">Номер заказа</th>
+                                <th class="text-left">Дата заказа</th>
+                                <th class="text-left">Клиент</th>
+                                <th class="text-left">Сумма</th>
+                                <th class="text-left">Статус</th>
+                                <th class="text-left">Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in orders %}
+                            <tr class="h-14 border-gray-300 border-b">
+                                <td class="pl-8">{{ i.id }}</td>
+                                <td>{{ i.created_at }}</td>
+                                <td>{{ i.fullname }}</td>
+                                <td>{{ i.price }} Сом</td>
+                                <td>{{ i.status }}</td>
+                                <td>
+                                    <button
+                                        class="px-4 py-1 text-white bg-blue-500 rounded hover:bg-blue-600">Обновить</button>
+                                    <button class="px-4 py-1 text-white bg-green-500 rounded hover:bg-green-600 ml-2">
+                                        <a href="/order-detail/{{ i.id }}/">Подробнее</a>
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+{% endblock %}

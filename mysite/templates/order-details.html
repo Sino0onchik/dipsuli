@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Title{% endblock %}
+{% block content %}
+        <!-- Main Content -->
+        <main class="flex-grow">
+            <div class="container mx-auto px-4 py-6">
+                <h1 class="text-3xl font-bold mb-4">Детали заказа №001</h1>
+                <!-- Order Details -->
+                <div class="bg-white shadow-md rounded mb-4 p-4">
+                    <h2 class="text-2xl font-bold mb-3">Информация о клиенте</h2>
+                    <p><strong>Имя:</strong> {{ order.fullname }}</p>
+                    <p><strong>Адрес:</strong> {{ order.address }}</p>
+                    <p><strong>Телефон:</strong>{{ order.phone }}</p>
+                    <p><strong>Email:</strong> {{ order.email }}</p>
+
+                    <h2 class="text-2xl font-bold mb-3 mt-4">Товары в заказе</h2>
+                    <!-- Product List -->
+                    {% for i in order.items.all %}
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center">
+                                <img class="h-12 w-12 object-cover mr-4" src="{{ i.product.image.url }}"
+                                    alt="Product Name">
+                                <p>{{ i.product.title }}</p>
+                            </div>
+                            <p>Количество: {{ i.quantity }}</p>
+                            <p>Цена: {{ i.product.price }} Сом</p>
+                        </div>
+                        <!-- Repeat for each product -->
+                    </div>
+                    {% endfor %}
+
+                    <h2 class="text-2xl font-bold mb-3 mt-4">Суммарная стоимость</h2>
+                    <p><strong>Общая стоимость:</strong> {{ order.price }} Сом</p>
+
+                    <h2 class="text-2xl font-bold mb-3 mt-4">Статус заказа</h2>
+                    <p><strong>Текущий статус:</strong> {{ order.status }}</p>
+                    <!-- Actions -->
+                    <div class="mt-4">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                            type="button">Обновить статус</button>
+                        <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded ml-2"
+                            type="button">Отменить заказ</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Title{% endblock %}
+{% block content %}
+        <main class="flex flex-grow items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <!-- ... контент страницы авторизации ... -->
+            <div class="max-w-md w-full space-y-8">
+                <div>
+                    <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                        Создание заказ
+                    </h2>
+                    <p class="mt-2 text-center text-sm text-gray-600">
+                        Введите ваши данные, чтобы создать заказ
+                    </p>
+                    <p class="mt-2 text-center text-sm text-red-600">
+                        {{ form.errors }}
+                    </p>
+                </div>
+                <form class="mt-8 space-y-6" method="POST">
+                    <input type="hidden" name="remember" value="true">
+                    {% csrf_token %}
+                    <div class="rounded-md shadow-sm -space-y-px">
+                        <div>
+                            <label for="email-address" class="sr-only">Полное имя</label>
+                            {{ form.fullname }}
+                        </div>
+                        <div>
+                            <label for="password" class="sr-only">Почта</label>
+                            {{ form.email }}
+                        </div>
+                        <div>
+                            <label for="password" class="sr-only">Адрес</label>
+                            {{ form.address }}
+                        </div>
+                        <div>
+                            <label for="password" class="sr-only">Телефон</label>
+                            {{ form.phone }}
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Создать
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+{% endblock %}

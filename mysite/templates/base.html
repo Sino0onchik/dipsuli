@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница - Компьютерный магазин</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Дополнительные стили, если необходимо */
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Header -->
+    <div class="flex flex-col min-h-screen">
+        <header class="bg-indigo-800 text-gray-50">
+            <div class="container mx-auto flex justify-between items-center p-4">
+                <a href="/" class="text-xl font-bold">Компьютерный Магазин</a>
+                <div class="flex items-center space-x-4">
+                    <nav>
+                        <ul class="flex space-x-4">
+                            <li><a href="/" class="hover:text-lime-300">Главная</a></li>
+                            <li><a href="/" class="hover:text-lime-300">Каталог</a></li>
+                            <li><a href="/about/" class="hover:text-lime-300">О нас</a></li>
+                            <li><a href="/contacts/" class="hover:text-lime-300">Контакты</a></li>
+                            <li><a href="{% url 'cart' %}" class="hover:text-lime-300">Корзина</a></li>
+                        </ul>
+                    </nav>
+                    <!-- Кнопки авторизации -->
+
+                    <!-- Показывать эту ссылку только если пользователь авторизован -->
+                    {% if user.is_authenticated %}
+                    <a href="/panel/"
+                        class="bg-indigo-700 hover:bg-indigo-600 text-white px-3 py-2 rounded-md text-sm font-medium">Панель Заказов</a>
+                    <a href="/logout/"
+                        class="bg-indigo-700 hover:bg-indigo-600 text-white px-3 py-2 rounded-md text-sm font-medium">Выйти</a>
+                    {% else %}
+                    <a href="/login/"
+                        class="bg-indigo-700 hover:bg-indigo-600 text-white px-3 py-2 rounded-md text-sm font-medium">Войти</a>
+                    <a href="/register/"
+                        class="bg-indigo-700 hover:bg-indigo-600 text-white px-3 py-2 rounded-md text-sm font-medium">Зарегистрироваться</a>
+                    {% endif %}
+                </div>
+            </div>
+        </header>
+{% block content %}
+{% endblock %}
+                <!-- Footer -->
+        <footer class="bg-indigo-900 text-gray-200">
+            <div class="container mx-auto p-4">
+                <div class="flex justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold">Компьютерный Магазин</h3>
+                        <p>© 2024 Все права защищены</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Следите за нами</h3>
+                        <ul>
+                            <li><a href="#" class="hover:text-lime-300">Facebook</a></li>
+                            <li><a href="#" class="hover:text-lime-300">Instagram</a></li>
+                            <li><a href="#" class="hover:text-lime-300">Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

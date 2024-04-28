@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}Title{% endblock %}
+{% block content %}
+        <!-- Main Content -->
+        <main class="flex-grow">
+            <div class="container mx-auto px-4 py-6">
+                <h1 class="text-3xl font-bold mb-4">Профиль пользователя</h1>
+                <form action="#" method="POST">
+                    <div class="mb-4">
+                        <label for="username" class="block text-sm font-medium text-gray-700">Имя пользователя</label>
+                        <input type="text" id="username" name="username"
+                            class="mt-1 p-2 w-full border-gray-300 rounded-md shadow-sm" value="Иван Иванов">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="mt-1 p-2 w-full border-gray-300 rounded-md shadow-sm" value="ivanov@example.com">
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="block text-sm font-medium text-gray-700">Новый пароль</label>
+                        <input type="password" id="password" name="password"
+                            class="mt-1 p-2 w-full border-gray-300 rounded-md shadow-sm">
+                        <p class="mt-1 text-sm text-gray-600">Оставьте поле пустым, если не хотите менять пароль.</p>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit"
+                            class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md">Сохранить
+                            изменения</button>
+                    </div>
+                </form>
+                <section class="mt-10">
+                    <h2 class="text-2xl font-bold mb-4">История заказов</h2>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white shadow-md rounded mb-4">
+                            <thead>
+                                <tr class="w-full h-16 border-gray-300 border-b py-8">
+                                    <th class="text-left px-8">Номер заказа</th>
+                                    <th class="text-left">Дата</th>
+                                    <th class="text-left">Статус</th>
+                                    <th class="text-left">Сумма</th>
+                                    <th class="text-left">Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="h-14 border-gray-300 border-b">
+                                    <td class="px-8">001</td>
+                                    <td>2024-01-01</td>
+                                    <td>Доставлено</td>
+                                    <td>15200 Сом</td>
+                                    <td><a href="#" class="text-blue-600 hover:text-blue-800">Подробнее</a></td>
+                                </tr>
+                                <!-- Повторять для каждого заказа -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+{% endblock %}
